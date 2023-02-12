@@ -1,0 +1,44 @@
+.calendar {
+    font-family: Arial, sans-serif;
+    max-width: 450px;
+    margin: 15px auto;
+  }
+  
+  .month {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .weekdays {
+    display: flex;
+    
+  }
+  span{
+    width: 56px;
+    margin-left: 6px;
+  }
+  .days {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .days div {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    text-align: center;
+    line-height: 50px;
+    background-color: #c57f7f;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .days div:hover {
+    background-color: #ccc;
+  }
+  
+  .days div.today {
+    background-color: #007bff;
+    color: #fff;
+  }
+  

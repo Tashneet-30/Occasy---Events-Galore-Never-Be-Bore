@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+  </head>
+  <body>
+    <div class="tashneet">
+      <div class="wrapper-one">
+      
+        <div class="title" ><span>Login</span></div>
+        <form id = "loginform">
+          <div class="row">
+            <i class="fas fa-envelope"></i>
+            <input type="text" placeholder=" Enter your Email" id = "Email" required>
+          </div>
+          <div class="row">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Enter your Password" id = "password" required>
+          </div>
+          <br>
+          <div class="pass"><a href="#">Forgot password?</a></div>
+          <div class="row button">
+            <input type="submit" value="Login" onclick="submitForm()">
+          </div>
+          <div class="signup-link">Don't Have An Account? <a href="signup.html">Signup now</a></div>
+        </form>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script>
+        "use strict";
+  
+       
+        const firebaseConfig = {
+    apiKey: "AIzaSyDv9p4NdJb8i5ALFozviloRcGQ9x0rPbZM",
+    authDomain: "myproject-48931.firebaseapp.com",
+    databaseURL: "https://myproject-48931-default-rtdb.firebaseio.com",
+    projectId: "myproject-48931",
+    storageBucket: "myproject-48931.appspot.com",
+    messagingSenderId: "298954291424",
+    appId: "1:298954291424:web:5283196c911d39a3ba3885",
+    measurementId: "G-VE2GZ1CBX3"
+  };
+  // Initialize Firebase
+const app = firebase.initializeApp(firebaseConfig);
+const analytics = firebase.analytics();
+
+
+
+// Get a reference to the database
+var database = app.database();
+
+
+// Submit form function
+function submitForm() {
+  var Email = document.getElementById("Email").value;
+  var password = document.getElementById("password").value;
+
+  // Write data to the database
+  database.ref("users").push({
+    Email: Email,
+    password: password
+  }).catch(function(error) {
+    console.error("Error writing new message to Firebase Database", error);
+});
+
+}
+  
+    </script>
+    
+   
+    
+    
+  </body>
+</html>
+
